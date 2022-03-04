@@ -1,3 +1,6 @@
 ---
 secrets:
   - 1e5c23a29dc681676cfdc701f04e79ff70c28c76
+hypnotoad:
+  listen: 
+    - 'http://0.0.0.0:8080'
