@@ -1,5 +1,5 @@
 FROM perl:5.34-slim
-WORKDIR /opt/OneRc/
-COPY . /opt/OneRc/
+WORKDIR /opt/OneRC/
+COPY . /opt/OneRC/
 RUN cpanm --cpanfile cpanfile --installdeps .
-CMD ["perl", "main.pl", "daemon"]
+ENTRYPOINT ["hypnotoad",  "-f" ,"./script/one_rc"]
