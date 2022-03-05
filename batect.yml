@@ -20,3 +20,8 @@ tasks:
     run:
       container: onerc 
       entrypoint: prove -lv t
+  shell:
+    description: Serve the onerc application standingalone
+    run:
+      container: onerc 
+      entrypoint: /bin/bash
