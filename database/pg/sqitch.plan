@@ -1,0 +1,4 @@
+%syntax-version=1.0.0
+%project=onercpg
+
+onerc-0.0.1 2022-03-15T17:57:47Z Onerc <Onerc.io> # init base schema
