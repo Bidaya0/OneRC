@@ -8,6 +8,12 @@ containers:
     volumes:
       - .:/opt/OneRC/
 
+  onerc-db:
+    image: postgres:14
+    environment:
+      POSTGRES_PASSWORD: onerc-password
+      POSTGRES_USER: onerc
+      POSTGRES_DB: onerc 
 
 tasks:
   serve:
@@ -15,13 +21,19 @@ tasks:
     run:
       container: onerc 
       entrypoint: morbo -l  http://0.0.0.0:3000 ./script/one_rc
+    dependencies:
+      - onerc-db
   test:
     description: Serve the onerc application standingalone
     run:
       container: onerc 
       entrypoint: prove -lv t
+    dependencies:
+      - onerc-db
   shell:
     description: Serve the onerc application standingalone
     run:
       container: onerc 
       entrypoint: /bin/bash
+    dependencies:
+      - onerc-db
