@@ -18,7 +18,7 @@ sub startup ($self) {
 		#helper(db => sub { state $db = Mojo::Pg->new("postgresql://$username:$password\@$host:$port/$database") });
 		#$self->helper(db => sub { state $db = Mojo::Pg->new("postgresql://$username:$password\@$host:$port/$database") });
 		$self->helper(db => sub { state $db = Mojo::Pg->new("postgresql://$username:$password\@$host:$port/$database") });
-		print `sqitch target add  db:pg://$username:$password\@$host:$port/$database `;
+		print `sqitch target --chdir ./database/pg add pg db:pg://$username:$password\@$host:$port/$database `;
 		print `sqitch deploy --chdir ./database/pg pg`;
 	};
   # Configure the application
@@ -28,10 +28,10 @@ sub startup ($self) {
 
   # Normal route to controller
   $r->get('/')->to('Example#welcome');
-	#  $r->post('/codesnippet')->to('CodeSnippet#create');
-	#$r->get('/codesnippet')->to('CodeSnippet#retrive');
-	#$r->put('/codesnippet')->to('CodeSnippet#retrive');
-	#$r->delete('/codesnippet')->to('CodeSnippet#retrive');
+	$r->post('/codesnippet')->to('CodeSnippet#create');
+	$r->get('/codesnippet/:id')->to('CodeSnippet#retrive');
+	$r->put('/codesnippet/:id')->to('CodeSnippet#update');
+	$r->delete('/codesnippet/:id')->to('CodeSnippet#delete');
 }
 
 1;
