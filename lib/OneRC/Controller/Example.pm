@@ -1,6 +1,6 @@
 package OneRC::Controller::Example;
 use Mojo::Base 'Mojolicious::Controller', -signatures;
-
+use Mojo::Base -base, -signatures;
 # This action will render a template
 sub welcome ($self) {
 
