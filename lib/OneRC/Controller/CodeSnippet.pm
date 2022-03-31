@@ -25,7 +25,6 @@ sub update ($self){
 sub retrive($self){
 	my $id = $self->every_param('id');
 	my $res = $self->db->db->select('codesnippets','*',{id => $id})->hash;
-	say Dumper $res;
 	return $self->render(json => $res);
 }
 
