@@ -18,8 +18,8 @@ sub startup ($self) {
 		#helper(db => sub { state $db = Mojo::Pg->new("postgresql://$username:$password\@$host:$port/$database") });
 		#$self->helper(db => sub { state $db = Mojo::Pg->new("postgresql://$username:$password\@$host:$port/$database") });
 		$self->helper(db => sub { state $db = Mojo::Pg->new("postgresql://$username:$password\@$host:$port/$database") });
-		print `sqitch target --chdir ./database/pg add pg db:pg://$username:$password\@$host:$port/$database `;
-		print `sqitch deploy --chdir ./database/pg pg`;
+		`sqitch target --chdir /var/lib/onerc/database/pg add pg db:pg://$username:$password\@$host:$port/$database `;
+		print `sqitch deploy --chdir /var/lib/onerc/database/pg pg`;
 	};
   # Configure the application
   $self->secrets($config->{secrets});
