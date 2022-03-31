@@ -23,7 +23,6 @@ sub update ($self){
 }
 
 sub retrive($self){
-	say Dumper $self->every_param('id');
 	my $id = $self->every_param('id');
 	my $res = $self->db->db->select('codesnippets','*',{id => $id})->hash;
 	say Dumper $res;
@@ -32,7 +31,6 @@ sub retrive($self){
 
 sub delete($self){
 	my $id = $self->every_param('id');
-	say Dumper $id;
 	my $res = $self->db->db->delete('codesnippets',{id => $id});
 	return $self->render(json => $res);
 }
