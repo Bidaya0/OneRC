@@ -2,9 +2,6 @@
 <script src="https://cdn.hibikihtml.com/hibiki/v0.3.4/hibiki-prod.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-<link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/default.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
 
 <template hibiki>
   <hibiki-data>{"code_id": null,"code": "echo helloworld" ,"url":"/api/v1/codesnippet/"}</hibiki-data>
