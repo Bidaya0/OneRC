@@ -5,7 +5,7 @@ use Test::Mojo;
 use Data::Dumper;
 
 my $t = Test::Mojo->new('OneRC');
-$t->post_ok('/codesnippet' => json => {'code' => 'print("Hello World\n");'})
+$t->post_ok('/api/v1/codesnippet' => json => {'code' => 'print("Hello World\n");'})
 	->status_is(201)
 	->header_exists('location')
 	->header_like(Location => qr/\/codesnippet\/[0-9]+$/);
@@ -17,7 +17,6 @@ $t->get_ok($path)
 	->status_is(200)
 	->json_has('/code');
 
-	#say Dumper $t->tx->result;
 
 
 $t->put_ok($path => json => {'code' => 'print "helloworld";'})
