@@ -10,7 +10,7 @@ sub create ($self) {
 	my $code = $reqjson->{code};
 	# Render template "example/welcome.html.ep" with message
 	my $res = $self->db->db->insert('codesnippets',{'code' => $code ,"user_id" => 1},{returning => 'id'})->hash->{id};
-	$self->tx->res->headers->location("/codesnippet/$res");
+	$self->tx->res->headers->location("/api/v1/codesnippet/$res");
 	return $self->render(json => {'id' => $res}, status => 201);
 }
 
