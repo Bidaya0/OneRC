@@ -28,10 +28,12 @@ sub startup ($self) {
 
   # Normal route to controller
   $r->get('/')->to('Example#welcome');
-	$r->post('/codesnippet')->to('CodeSnippet#create');
-	$r->get('/codesnippet/:id')->to('CodeSnippet#retrive');
-	$r->put('/codesnippet/:id')->to('CodeSnippet#update');
-	$r->delete('/codesnippet/:id')->to('CodeSnippet#delete');
+	$r->post('/api/v1/codesnippet')->to('CodeSnippet#create');
+	$r->get('/api/v1/codesnippet/:id')->to('CodeSnippet#retrive');
+	$r->put('/api/v1/codesnippet/:id')->to('CodeSnippet#update');
+	$r->delete('/api/v1/codesnippet/:id')->to('CodeSnippet#delete');
+  $r->get('/web/v0/codesnippet')->to('CodeSnippet#template');
+
 }
 
 1;

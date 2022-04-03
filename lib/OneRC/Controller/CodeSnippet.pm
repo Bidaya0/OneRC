@@ -34,5 +34,7 @@ sub delete($self){
 	return $self->render(json => $res);
 }
 
-
+sub template($self){
+	return $self->render("example/codesnippet");
+}
 1;

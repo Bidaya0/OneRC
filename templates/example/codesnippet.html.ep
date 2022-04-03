@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<script src="https://cdn.hibikihtml.com/hibiki/v0.3.4/hibiki-prod.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+
+<template hibiki>
+  <hibiki-data>{"code_id": null,"code": "echo helloworld" ,"url":"/api/v1/codesnippet/"}</hibiki-data>
+	<button class="button" click.handler="@rtn =  callhandler(@url=$.url + $.code_id, @method='GET');$.code = @rtn.code">Get code snippet</button>
+	<button class="button" click.handler="@rtn =  POST /api/v1/codesnippet/(code=$.code);$.code_id = @rtn.id">Add code snippet</button>
+	<button class="button" click.handler="@rtn =  callhandler(@url=$.url + $.code_id, @data={code:$.code},@method='PUT')">Change the code snippet</button>
+	<button class="button" click.handler="@rtn =  callhandler(@url=$.url + $.code_id, @method='DELETE')">Delete code snippet</button>
+	<input class="input" type="text" placeholder="code_id" value.bindpath="$.code_id">
+	<textarea class='textarea' rows="10" cols="10" value.bindpath="$.code"></textarea>
+	</div>
+</template>
