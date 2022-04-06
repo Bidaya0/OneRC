@@ -33,6 +33,7 @@ sub startup ($self) {
 	$r->put('/api/v1/codesnippet/:id')->to('CodeSnippet#update');
 	$r->delete('/api/v1/codesnippet/:id')->to('CodeSnippet#delete');
   $r->get('/web/v0/codesnippet')->to('CodeSnippet#template');
+	$r->get('/api/v1/codeexplorer/')->to('CodeExplorer#retrive');
 
 }
 
