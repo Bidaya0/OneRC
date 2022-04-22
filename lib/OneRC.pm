@@ -34,6 +34,7 @@ sub startup ($self) {
 	$r->delete('/api/v1/codesnippet/:id')->to('CodeSnippet#delete');
   $r->get('/web/v0/codesnippet')->to('CodeSnippet#template');
 	$r->get('/api/v1/codeexplorer/')->to('CodeExplorer#retrive');
+  $r->get('/web/v0/codeexplorer/')->to('CodeExplorer#template');
 
 }
 
