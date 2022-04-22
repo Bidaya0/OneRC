@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<script src="https://cdn.hibikihtml.com/hibiki/v0.3.4/hibiki-prod.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/languages/go.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<ul>
+  <%  foreach my $item ( @{ stash('res') } ) { %>
+    <li>
+		<div class="card">
+		<pre><code class="language content"><%= $item->{'code'}; %></code></pre>
+    </div>
+		</li>
+  <% } %>
+</ul>
+
+
+
