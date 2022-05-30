@@ -3,3 +3,4 @@ requires 'Mojo::Pg' ;
 requires 'DBD::Pg' ;
 requires 'DBI' ;
 requires 'App::Sqitch';
+requires 'Mojolicious::Plugin::Authentication';

@@ -6,9 +6,19 @@ CREATE TABLE users (
 	id serial NOT NULL,
 	username varchar(100) NOT NULL,
 	"password" varchar(100) NULL,
-	email varchar(100) NULL,
-	phone varchar(100) NULL,
+	email varchar(100) DEFAULT '' NOT NULL,
+	phone varchar(100) DEFAULT '' NOT NULL,
+	uuid varchar(64) DEFAULT '' NOT NULL,
+	uuid_auth varchar(255) DEFAULT '' NOT NULL,
 	CONSTRAINT users_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE oauth (
+	id serial NOT NULL,
+	state varchar(100) NOT NULL,
+	status int4 DEFAULT 0 NOT NULL,
+	expire_time int DEFAULT 0 NOT NULL,
+	CONSTRAINT oauth_id PRIMARY KEY (id)
 );
 
 CREATE TABLE codesnippets (
