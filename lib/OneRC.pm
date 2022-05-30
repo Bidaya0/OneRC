@@ -1,12 +1,20 @@
 package OneRC;
 use Mojo::Base 'Mojolicious', -signatures;
 use Mojo::Pg;
+use Mojolicious::Plugin::Authentication;
+use OneRC::Schema::User qw(autoload_user,validate_user);
 
 # This method will run once at server start
 sub startup ($self) {
 
   # Load configuration from config file
   my $config = $self->plugin('NotYAMLConfig',{file=>'./conf/onerc.yml'});
+	$self->plugin('Authentication' => {
+    autoload_user   => 1,
+    session_key     => 'onerc_sessionkey',
+    load_user_p     => autoload_user,
+    validate_user_p => validate_user,
+	});
 	
 	if ($config->{database}->{type} eq 'postgres') {
 		my $host = $config->{database}->{host};
